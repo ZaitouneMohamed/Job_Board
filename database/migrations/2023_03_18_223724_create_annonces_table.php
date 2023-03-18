@@ -23,6 +23,9 @@ return new class extends Migration
             $table->unsignedBigInteger('categorie_id')->unsigned();
             $table->foreign('categorie_id')->references('id')->on('categories')
                 ->onDelete('cascade');
+            $table->unsignedBigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onDelete('cascade');
             $table->string('responsibility');
             $table->string('qualification');
             $table->string('duration');
