@@ -9,7 +9,7 @@
                 <div class="container">
                     <div class="row justify-content-start">
                         <div class="col-10 col-lg-8">
-                            <h1 class="display-3 text-white animated slideInDown mb-4">welcome hoùe</h1>
+                            <h1 class="display-3 text-white animated slideInDown mb-4">{{__('welcome.welcome')}}</h1>
                             <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
                             <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Search A Job</a>
                             <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Find A Talent</a>
@@ -24,7 +24,7 @@
                 <div class="container">
                     <div class="row justify-content-start">
                         <div class="col-10 col-lg-8">
-                            <h1 class="display-3 text-white animated slideInDown mb-4">welcome home</h1>
+                            <h1 class="display-3 text-white animated slideInDown mb-4">{{__('welcome.welcome')}}</h1>
                             <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
                             <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Search A Job</a>
                             <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Find A Talent</a>
@@ -171,7 +171,7 @@
 </div>
 <!-- About End -->
 <!-- Jobs Start -->
-{{-- <livewire:job.joblist /> --}}
+<livewire:job.jobslist />
 <!-- Jobs End -->
 <!-- Testimonial Start -->
 <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">

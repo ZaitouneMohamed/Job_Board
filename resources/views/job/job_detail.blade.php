@@ -63,24 +63,26 @@
                                 </div>
                             </div>
                         @else
-                            @if (\App\Models\user_annonce::where('user_id',auth()->user()->id)->where('annonce_id',$job->id)->count() == 1 )
+                            @if ( auth()->user()->job->contains($job->id) )
                                 <h1>you already postuled on this job</h1>
                             @else
-                                <form action="{{route('user.apply_job')}}" method="post">
+                                <a href="{{route('user.apply_job' , ['user_id' => auth()->user()->id, 'job_id' => $job->id] )}}" class="btn btn-primary w-100">Apply Now</a>
+                                {{-- <form action="{{route('user.apply_job')}}" method="post">
                                     @csrf
                                     @method("post")
                                     <input type="hidden" name="annonce_id" value="{{$job->id}}">
                                     <button class="btn btn-primary w-100" type="submit">Apply Now</button>
-                                </form>
+                                </form> --}}
                             @endif
                         @endif
                     @else
-                        <form action="{{route('user.apply_job')}}" method="post">
+                                    <a href="{{route('user.apply_job' , ['user_id' => auth()->user()->id, 'job_id' => $job->id] )}}" class="btn btn-primary w-100">Apply Now</a>
+                        {{-- <form action="" method="post">
                             @csrf
                             @method("post")
                             <input type="hidden" name="annonce_id" value="{{$job->id}}">
                             <button class="btn btn-primary w-100" type="submit">Apply Now</button>
-                        </form>
+                        </form> --}}
                     @endauth
                 </div>
             </div>
@@ -89,7 +91,7 @@
                 <div class="bg-light rounded p-5 mb-4 wow slideInUp" data-wow-delay="0.1s">
                     <h4 class="mb-4">Job Summery</h4>
                     <p><i class="fa fa-angle-right text-primary me-2"></i>Published {{$job->created_at}}</p>
-                    <p><i class="fa fa-angle-right text-primary me-2"></i>Vacancy: {{$job->users->count()}} Position</p>
+                    <p><i class="fa fa-angle-right text-primary me-2"></i>Vacancy: {{$job->users()->count()}} Position</p>
                     <p><i class="fa fa-angle-right text-primary me-2"></i>Job Nature: {{$job->nature}}</p>
                     <p><i class="fa fa-angle-right text-primary me-2"></i>Salary: ${{$job->salary}}</p>
                     <p><i class="fa fa-angle-right text-primary me-2"></i>Location: {{$job->company->description}}</p>
