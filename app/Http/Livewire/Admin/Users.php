@@ -17,11 +17,29 @@ class Users extends Component
     }
 
     public function getUsersProperty() {
-        return User::select('id','name','email')->paginate(5);
+        return User::select('id','name','email','active')->latest()->paginate(5);
     }
 
     public function delete($id) {
         User::find($id)->delete();
+        $this->getUsersProperty();
+    }
+
+    public function active($id)
+    {
+        $user = User::find($id);
+        $user->update([
+            "active" => 1
+        ]);
+        $this->getUsersProperty();
+    }
+
+    public function desactive($id)
+    {
+        $user = User::find($id);
+        $user->update([
+            "active" => 0
+        ]);
         $this->getUsersProperty();
     }
 }

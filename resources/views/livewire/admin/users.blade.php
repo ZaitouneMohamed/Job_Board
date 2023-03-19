@@ -17,6 +17,7 @@
                             <th>Name</th>
                             <th>email</th>
                             <th>role</th>
+                            <th>Statue</th>
                             <th>action</th>
                         </tr>
                     </thead>
@@ -29,8 +30,15 @@
                                 <td>
                                     @if ($item->roles)
                                         @foreach ($item->roles as $role)
-                                            <button class="btn btn-success rounded-circle">{{$role->name}}</button>
+                                            <button class="btn btn-secondary">{{$role->name}}</button>
                                         @endforeach
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($item->active === 1)
+                                        <button class="btn btn-success" wire:click="desactive({{$item->id}})">able</button>
+                                    @else
+                                        <button class="btn btn-danger" wire:click="active({{$item->id}})">disable</button>
                                     @endif
                                 </td>
                                 <td class="d-flex">
