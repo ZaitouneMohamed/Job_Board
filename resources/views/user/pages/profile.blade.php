@@ -6,8 +6,8 @@
 <br>
 name : {{auth()->user()->name}} <br>
 email : {{auth()->user()->email}} <br>
-@if (isset(auth()->user()->info))
-    ville : {{auth()->user()->info->ville}} <br>
+@if (auth()->user()->info)
+ville : {{auth()->user()->info->ville}} <br>
     telephone : {{auth()->user()->info->telephone}} <br>
     sexe : {{auth()->user()->info->sexe}} <br>
     fonction : {{auth()->user()->info->Fonction}} <br>
