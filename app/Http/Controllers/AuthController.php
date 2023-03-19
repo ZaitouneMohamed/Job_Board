@@ -35,6 +35,13 @@ class AuthController extends Controller
                 "password" => $request->password
             ])
         ) {
+            if (Auth::user()->hasRole('admin')) {
+                return redirect("/admin");
+            }elseif (Auth::user()->hasRole('user')) {
+                return redirect("/user");
+            }else {
+                return redirect("/is-admin");
+            }
             return redirect('/');
         }else {
             return redirect('/login')->with([
