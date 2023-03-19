@@ -54,7 +54,7 @@
                 <!-- Messages Dropdown Menu -->
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
-                        gjw9
+                        {{ Auth::user()->name }}
 
                         {{-- <i class="far fa-comments"></i> --}}
                         {{-- <span class="badge badge-danger navbar-badge">3</span> --}}
@@ -64,12 +64,10 @@
                             profile
                         </a>
                         <div class="dropdown-divider"></div>
-                        <form method="POST" action="{{ route('logout') }}">
+                        <form method="POST" action="{{ route('logout') }}" id="frm">
                             @csrf
+                            <button type="submit" class="dropdown-item text-center">log out </button>
                         </form>
-                        {{-- <a href="#" class="dropdown-item text-center">
-                            log out
-                        </a> --}}
                     </div>
                 </li>
             </ul>
@@ -94,7 +92,7 @@
                             class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">gjw9</a>
+                        <a href="#" class="d-block">{{ Auth::user()->name }}</a>
                     </div>
                 </div>
 
@@ -105,7 +103,7 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{route('admin.categories')}}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     categories
@@ -114,7 +112,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{route('admin.userslist')}}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     all users
@@ -173,7 +171,11 @@
         </aside>
 
         <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <div class="container">
                 @yield('content')
+            </div>
+        </div>
         <!-- REQUIRED SCRIPTS -->
 
         <!-- jQuery -->
