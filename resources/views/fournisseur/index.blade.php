@@ -1,8 +1,5 @@
-@extends("user.master.master")
+@extends('fournisseur.layouts.master')
 
-@section("content")
-
-        <h2>fournisseur  dashboard</h2>
-
-
+@section('content')
+    <h2>fournisseur dashboard</h2>
 @endsection
