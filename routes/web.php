@@ -15,9 +15,26 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('job.index');
 });
 
+Route::middleware(['auth','role:admin'])->name('admin.')->prefix('admin')->group(function() {
+    Route::get('/', function () {
+        return view('admin.index');
+    });
+});
+
+Route::middleware(['auth','role:fournisseur'])->name('fournisseur.')->prefix('is-admin')->group(function() {
+    Route::get('/', function () {
+        return view('fournisseur.index');
+    });
+});
+
+Route::middleware(['auth','role:user'])->name('user.')->prefix('user')->group(function() {
+    Route::get('/', function () {
+        return view('user.index');
+    });
+});
 
 // Auth Controller
 Route::get("login" , [AuthController::class,'login_form'])->name('login_form');
