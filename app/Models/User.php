@@ -11,7 +11,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable , HasRoles;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -22,6 +22,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'active',
     ];
 
     /**
@@ -42,4 +43,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function info(){
+        return $this->hasOne(user_info::class  );
+    }
+
+    public function job()
+    {
+        return $this->belongsToMany(
+            Annonce::class,
+            'pendings',
+            'user_id',
+            'annonce_id'
+        );
+    }
 }

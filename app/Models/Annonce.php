@@ -42,4 +42,13 @@ class Annonce extends Model
     {
         return Carbon::parse($value)->diffForHumans();
     }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class,
+            'pendings',
+            'annonce_id',
+            'user_id',
+        );
+    }
 }
