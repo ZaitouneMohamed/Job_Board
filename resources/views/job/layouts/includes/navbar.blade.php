@@ -20,7 +20,7 @@
             <a href="" class="nav-item nav-link">jobs list</a>
             @auth
                 @if (auth()->user()->hasRole('user'))
-                    <a href=""" class="nav-item nav-link">mon compte</a>
+                    <a href="" class="nav-item nav-link">mon compte</a>
                 @endif
             @endauth
             {{-- <div class="nav-item dropdown">
@@ -30,7 +30,7 @@
                     <a href="job-detail.html" class="dropdown-item">Job Detail</a>
                 </div>
             </div> --}}
-            {{-- @include("lang") --}}
+            @include("lang")
         </div>
 
         <a href="" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Post A Job<i class="fa fa-arrow-right ms-3"></i></a>
