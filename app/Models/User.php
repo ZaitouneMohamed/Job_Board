@@ -57,4 +57,14 @@ class User extends Authenticatable
             'annonce_id'
         );
     }
+
+    public function fav_job()
+    {
+        return $this->belongsToMany(
+            Annonce::class,
+            'favorits',
+            'user_id',
+            'annonce_id'
+        );
+    }
 }

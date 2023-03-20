@@ -51,4 +51,13 @@ class Annonce extends Model
             'user_id',
         );
     }
+
+    public function users_fav()
+    {
+        return $this->belongsToMany(User::class,
+            'favorits',
+            'annonce_id',
+            'user_id',
+        );
+    }
 }
