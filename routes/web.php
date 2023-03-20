@@ -25,6 +25,7 @@ Route::get('/', function () {
 
 Route::get('lang', [LangController::class,'change'])->name('changeLang');
 Route::get('job_detail/{id}', [JobHomeController::class , 'job_details'] )->name('job_detail');
+Route::get('job_search', [JobHomeController::class , 'search'] )->name('job.search');
 
 
 Route::middleware(['auth','role:admin','active'])->name('admin.')->prefix('admin')->group(function() {

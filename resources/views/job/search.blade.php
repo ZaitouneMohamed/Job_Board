@@ -36,11 +36,11 @@
                                 <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                     <div class="d-flex mb-3">
                                         @auth
-                                            @if (\App\Models\user_fav_annonce::where('user_id',auth()->user()->id)->where('annonce_id',$item->id)->count() == 1 )
-                                            <button style="background-color: white;border: none"><i class="far fa-heart text-danger"></i></button>
-                                            @else
-                                                <button class="btn btn-light btn-square me-3" wire:click="fav_job({{$item->id}})"><i class="far fa-heart text-primary"></i></button>
-                                            @endif
+                                            {{-- @if (\App\Models\user_fav_annonce::where('user_id',auth()->user()->id)->where('annonce_id',$item->id)->count() == 1 ) --}}
+                                            {{-- <button style="background-color: white;border: none"><i class="far fa-heart text-danger"></i></button> --}}
+                                            {{-- @else --}}
+                                                <button class="btn btn-light btn-square me-3"><i class="far fa-heart text-primary"></i></button>
+                                            {{-- @endif --}}
                                         @endauth
                                         <a class="btn btn-primary" href="{{route('job_detail',$item->id)}}">view job</a>
                                     </div>
@@ -49,6 +49,9 @@
                             </div>
                         </div>
                     @endforeach
+                </div>
+                <div class="container">
+                    {{$annonces->links()}}
                 </div>
             </div>
         </div>
