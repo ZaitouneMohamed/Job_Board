@@ -41,6 +41,7 @@ Route::middleware(['auth','role:admin','active'])->name('admin.')->prefix('admin
         Route::delete('remove_role_from_user/{id}',  'remove_role_from_user')->name('remove_role_from_user');
         Route::post('assign_permission_to_user/{id}',  'assign_permission_to_user')->name('assign_permission_to_user');
         Route::delete('remove_permission_from_user/{id}',  'remove_permission_from_user')->name('remove_permission_from_user');
+        Route::get("annonces_list" ,  'annonces_list')->name("annonces_list");
     });
 });
 
@@ -65,6 +66,7 @@ Route::middleware(['auth','role:user','active'])->name('user.')->prefix('user')-
     Route::controller(UserHomeController::class)->group(function() {
         Route::get('profile' , 'profile')->name('profile');
         Route::get('pending_jobs' , 'my_pending_jobs')->name('pending_jobs');
+        Route::get('favorites_jobs' , 'my_favorites_jobs')->name('favorites_jobs');
         Route::get('edit_profile' , 'edit_profile')->name('profile.edit');
         Route::post('update_profile' , 'update_profile')->name('profile.update');
         Route::get('apply_job/{user_id}/{job_id}/apply_for_job' , 'apply_job')->name('apply_job');
