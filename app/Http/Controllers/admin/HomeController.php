@@ -23,6 +23,11 @@ class HomeController extends Controller
         return view('admin.view_user',compact('user'));
     }
 
+    public function annonces_list()
+    {
+        return view('admin.jobs.index');
+    }
+
     public function assign_role_to_user(Request $request , $id) {
         User::find($id)->assignRole($request->role_name);
         return redirect()->back();
