@@ -1,5 +1,5 @@
 @extends("user.master.master")
 
 @section("content")
-    <livewire:user.job.my-favorites-job />
+    <livewire:user.job.favorites />
 @endsection

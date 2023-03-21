@@ -20,6 +20,11 @@ class homeController extends Controller
         return view('user.pages.edit_profile');
     }
 
+    public function my_favorites_jobs()
+    {
+        return view('user.pages.favorite_jobs');
+    }
+
     public function my_pending_jobs()
     {
         return view('user.pages.pending_jobs');
