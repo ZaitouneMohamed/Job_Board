@@ -16,6 +16,12 @@ class HomeController extends Controller
         return view('job.job_detail',compact("job"));
     }
 
+    public function all_jobs()
+    {
+        $annonces = Annonce::paginate(15);
+        return view('job.alljobs',compact('annonces'));
+    }
+
     public function search(Request $request)
     {
         $keyword = $request->keyword;

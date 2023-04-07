@@ -17,10 +17,16 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
             <a href="/" class="nav-item nav-link">Home</a>
-            <a href="" class="nav-item nav-link">jobs list</a>
+            <a href="{{route('joblist')}}" class="nav-item nav-link">jobs list</a>
             @auth
                 @if (auth()->user()->hasRole('user'))
-                    <a href="" class="nav-item nav-link">mon compte</a>
+                    <a href="/user" class="nav-item nav-link">mon compte</a>
+                @endif
+                @if (auth()->user()->hasRole('admin'))
+                    <a href="/admin" class="nav-item nav-link">mon compte</a>
+                @endif
+                @if (auth()->user()->hasRole('fournisseur'))
+                    <a href="/is-admin" class="nav-item nav-link">mon compte</a>
                 @endif
             @endauth
             {{-- <div class="nav-item dropdown">

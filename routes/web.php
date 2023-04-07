@@ -23,6 +23,10 @@ Route::get('/', function () {
     return view('job.index');
 });
 
+Route::get('/jobList', function () {
+    return view('job.alljobs');
+})->name("joblist");
+
 Route::get('lang', [LangController::class,'change'])->name('changeLang');
 Route::get('job_detail/{id}', [JobHomeController::class , 'job_details'] )->name('job_detail');
 Route::get('job_search', [JobHomeController::class , 'search'] )->name('job.search');
