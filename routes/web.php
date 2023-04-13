@@ -35,7 +35,10 @@ Route::get('job_search', [JobHomeController::class , 'search'] )->name('job.sear
 Route::middleware(['auth','role:admin','active'])->name('admin.')->prefix('admin')->group(function() {
     Route::get('/', function () {
         return view('admin.index');
-    });
+    })->name("index");
+    Route::get('/profile', function () {
+        return view('admin.profile.index');
+    })->name("profile");
     Route::controller(HomeController::class)->group(function() {
 
         Route::get("categories" , 'Categorieslist' )->name("categories");
@@ -52,19 +55,25 @@ Route::middleware(['auth','role:admin','active'])->name('admin.')->prefix('admin
 Route::middleware(['auth','role:fournisseur','active'])->name('fournisseur.')->prefix('is-admin')->group(function() {
     Route::get('/', function () {
         return view('fournisseur.index');
-    });
+    }); 
     Route::get('/company', function () {
         return view('fournisseur.company');
     })->name('company');
     Route::get('/mes-annonces', function () {
         return view('fournisseur.annonces.index');
     })->name('annonces.index');
+    Route::get('/profile', function () {
+        return view('fournisseur.profile.index');
+    })->name('profile');
     Route::get('/user_on_annonce/{id}' , [FournisseurHomeController::class , 'users_pending_on_job' ])->name('user_on_annonce');
 
 });
 
 Route::middleware(['auth','role:user','active'])->name('user.')->prefix('user')->group(function() {
     Route::get('/', function () {
+        return view('user.index');
+    });
+    Route::get('/profile', function () {
         return view('user.index');
     });
     Route::controller(UserHomeController::class)->group(function() {
@@ -80,6 +89,9 @@ Route::middleware(['auth','role:user','active'])->name('user.')->prefix('user')-
 // Auth Controller
 Route::get("login" , [AuthController::class,'login_form'])->name('login');
 Route::get("register" , [AuthController::class,'register_form'])->name('register');
+
+Route::post("update_profile" , [AuthController::class,'update_profile'])->name('update_profile')->middleware("auth");
+Route::post("update_password" , [AuthController::class,'update_password'])->name('update_password')->middleware("auth");
 
 Route::post("login_c" , [AuthController::class,'login'])->name('login_c');
 Route::post("register_c" , [AuthController::class,'register'])->name('register_c');

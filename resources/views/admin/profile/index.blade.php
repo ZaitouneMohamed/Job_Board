@@ -1,9 +1,7 @@
-@extends('user.master.master')
+@extends("admin.master.master")
 
-@section('content')
-    <h1>mon compte</h1>
-    <H2>mes information</H2>
-    <br>
+@section("content")
+<h1>update info</h1>
     <form action="{{route('update_profile')}}" method="post">
         @csrf
         @method("post")
@@ -20,13 +18,4 @@
         <input type="password" name="password2" id=""><br>
         <button type="submit" class="btn btn-primary">submit</button>
     </form>
-    @if (auth()->user()->info)
-        ville : {{ auth()->user()->info->ville }} <br>
-        telephone : {{ auth()->user()->info->telephone }} <br>
-        sexe : {{ auth()->user()->info->sexe }} <br>
-        fonction : {{ auth()->user()->info->Fonction }} <br>
-        experience : {{ auth()->user()->info->experience }} <br>
-    @else
-        <a href="{{ route('user.profile.edit') }}" class="btn btn-danger">add info</a>
-    @endif
 @endsection

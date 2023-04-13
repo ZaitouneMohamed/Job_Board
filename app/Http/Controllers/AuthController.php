@@ -25,6 +25,40 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
+    public function update_profile(Request $request)
+    {
+        $this->validate($request,[
+            "email" => "required|email",
+            "name" => "required"
+        ]);
+        User::find(auth()->user()->id)->update([
+            "name" => $request->name,
+            "email" => $request->email
+        ]);
+        return redirect()->back();
+    }
+    
+    public function update_password(Request $request)
+    {
+        $this->validate($request,[
+            "old_password" => "required",
+            "password1" => "required",
+            "password2" => "required"
+        ]);
+        if (Hash::check($request->old_password, auth()->user()->password)) {
+            if ($request->password1 === $request->password2) {
+                User::find(auth()->user()->id)->update([
+                    "password" => Hash::make($request->password1),
+                ]);
+                return redirect()->back();
+            } else {
+                return redirect('/jobList');
+            }
+        }else {
+            return redirect('/');
+        }
+    }
+
     public function login(Request $request) {
         $this->validate($request,[
             "email" => "required|email",

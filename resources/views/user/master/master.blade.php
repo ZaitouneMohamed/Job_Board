@@ -111,46 +111,25 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-copy"></i>
+                        <li class="nav-item">
+                            <a href="{{route('user.pending_jobs')}}" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
                                 <p>
-                                    Jobs
-                                    <i class="fas fa-angle-left right"></i>
-                                    {{-- <span class="badge badge-info right">6</span> --}}
+                                    pending jobs
+                                    <span class="right badge badge-danger">
+                                        {{auth()->user()->job->count()}}
+                                    </span>
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{route('user.pending_jobs')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>pendings</p>
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{route('user.favorites_jobs')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Favorites</p>
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Fournisseurs</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
+                        <li class="nav-item">
+                            <a href="{{route('user.favorites_jobs')}}" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
                                 <p>
-                                    Charts
-                                    <i class="right fas fa-angle-left"></i>
+                                    Favorites jobes
+                                    <span class="right badge badge-danger">
+                                        {{auth()->user()->fav_job->count()}}
+                                    </span>
                                 </p>
                             </a>
                         </li>

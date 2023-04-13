@@ -13,4 +13,5 @@ class HomeController extends Controller
         $annonce = Annonce::find($id);
         return view('fournisseur.annonces.users_on_annonce',compact('annonce'));
     }
+
 }
