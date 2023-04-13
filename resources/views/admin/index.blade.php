@@ -10,7 +10,6 @@
 @endsection
 
 @section('content')
-    <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
@@ -31,8 +30,7 @@
                             <!-- small box -->
                             <div class="small-box bg-info">
                                 <div class="inner">
-                                    {{-- <h3>{{\App\Models\categorie::count()}}</h3> --}}
-                                    <h3>15</h3>
+                                    <h3>{{\App\Models\categorie::count()}}</h3>
 
                                     <p>Categories</p>
                                 </div>
@@ -99,7 +97,6 @@
             </section>
             <!-- /.content -->
         </div>
-    </div>
 @endsection
 
 @section('scripts')
