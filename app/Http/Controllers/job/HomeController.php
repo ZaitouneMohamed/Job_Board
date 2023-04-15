@@ -26,10 +26,13 @@ class HomeController extends Controller
     {
         $keyword = $request->keyword;
         $categorie = $request->categorie;
-        // $annonces = Annonce::select('id','title','company_id','nature','salary','created_at')
-        $annonces = Annonce::where("title" , "Like" , "%{$keyword}%")
-                    ->where("categorie_id" ,  $categorie)
-                    ->paginate(5);
+        $city = $request->location;
+
+        $annonces = Annonce::join('companies','companies.id','annonces.company_id')
+                            ->Where("companies.city" ,  $city)
+                            ->where("annonces.title" , "Like" , "%{$keyword}%")
+                            ->Where("annonces.categorie_id" ,  $categorie)
+                            ->get(['annonces.*']);
         return view('job.search',compact("annonces"));
     }
 
