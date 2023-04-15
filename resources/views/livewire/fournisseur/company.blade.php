@@ -15,6 +15,7 @@
                         <tr>
                             <th>#</th>
                             <th>Name</th>
+                            <th>city</th>
                             <th>adresse</th>
                             <th>email</th>
                             <th>detail</th>
@@ -27,6 +28,7 @@
                             <tr>
                                 <td>{{$item->id}}</td>
                                 <td>{{$item->name}}</td>
+                                <td>{{$item->city}}</td>
                                 <td>{{$item->adresse}}</td>
                                 <td>{{$item->email}}</td>
                                 <td>{{Str::limit($item->detail, 20, '...') }}</td>
@@ -47,6 +49,21 @@
                         <label for="exampleInputEmail1" class="form-label">name :</label>
                         <input type="text" class="form-control" wire:model="name">
                         @error('name') <span class="test text-danger">{{ $message }}</span> @enderror
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">city :</label>
+                        <input type="text" class="form-control" wire:model="city">
+                        @error('city') <span class="test text-danger">{{ $message }}</span> @enderror
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">email :</label>
+                        <input type="text" class="form-control" wire:model="email">
+                        @error('email') <span class="test text-danger">{{ $message }}</span> @enderror
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">detail :</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" wire:model="detail" rows="3"></textarea>
+                        @error('detail') <span class="test text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">adresse :</label>
