@@ -15,11 +15,11 @@ class Company extends Component
     {
         return view('livewire.fournisseur.company');
     }
-    public $name, $adresse, $contact;
+    public $name, $adresse, $contact,$city , $email , $detail;
 
     public function getCategoriesProperty()
     {
-        return ModelsCompany::select('id','name','adresse','email','detail','contact_info')->latest()->where('user_id',auth()->user()->id)->paginate(4);
+        return ModelsCompany::select('id','city','name','adresse','email','detail','contact_info')->latest()->where('user_id',auth()->user()->id)->paginate(4);
     }
 
     public function add()
@@ -28,6 +28,9 @@ class Company extends Component
         ModelsCompany::create([
             "name" => $this->name,
             "adresse" => $this->adresse,
+            "email" => $this->email,
+            "detail" => $this->detail,
+            "city" => $this->city,
             "user_id" => auth()->user()->id,
             "contact_info" => $this->contact
         ]);
@@ -48,6 +51,9 @@ class Company extends Component
     protected $rules = [
         'name' => 'required',
         'adresse' => 'required',
+        'email' => 'required|email',
+        'detail' => 'required',
+        'city' => 'required',
         'contact' => 'required',
     ];
 
