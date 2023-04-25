@@ -25,6 +25,16 @@ class Annonce extends Model
         'visits',
     ];
 
+    public function tags()
+    {
+        return $this->belongsToMany(
+            Tags::class,
+            'annonces_tags',
+            'annonce_id',
+            'tag_id'
+        );
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

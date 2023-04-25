@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Tags;
 use App\Models\User;
 use Illuminate\Http\Request;
+use PhpCsFixer\DocBlock\Tag;
 
 class HomeController extends Controller
 {
@@ -15,6 +17,12 @@ class HomeController extends Controller
     public function Users_list()
     {
         return view('admin.users');
+    }
+    
+    public function Tags_list()
+    {
+        $tags = Tags::paginate(5);
+        return view('admin.tags',compact("tags"));
     }
 
     public function view_user($id)
