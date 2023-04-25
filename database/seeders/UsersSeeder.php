@@ -19,6 +19,7 @@ class UsersSeeder extends Seeder
             'email' => "user@user.com",
             'email_verified_at' => now(),
             'password' => Hash::make("password"),
+            "active" => 1
         ])->assignRole('user');
 
         User::create([
@@ -26,6 +27,7 @@ class UsersSeeder extends Seeder
             'email' => "admin@admin.com",
             'email_verified_at' => now(),
             'password' => Hash::make("password"),
+            "active" => 1
         ])->assignRole('admin');
 
         User::create([
@@ -33,6 +35,7 @@ class UsersSeeder extends Seeder
             'email' => "fournisseur@fournisseur.com",
             'email_verified_at' => now(),
             'password' => Hash::make("password"),
+            "active" => 1
         ])->assignRole('fournisseur');
     }
 }
