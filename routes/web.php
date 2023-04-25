@@ -42,6 +42,7 @@ Route::middleware(['auth','role:admin','active'])->name('admin.')->prefix('admin
     Route::controller(HomeController::class)->group(function() {
 
         Route::get("categories" , 'Categorieslist' )->name("categories");
+        Route::get("tags" , 'Tags_list' )->name("tags");
         Route::get("users" ,  'Users_list')->name("userslist");
         Route::get('view_user/{id}',  'view_user')->name('user_info');
         Route::post('assign_role_to_user/{id}',  'assign_role_to_user')->name('assign_role_to_user');
