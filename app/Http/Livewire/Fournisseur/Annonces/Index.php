@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Fournisseur\Annonces;
 
 use App\Models\Annonce;
+use App\Models\Tags;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -36,6 +37,13 @@ class Index extends Component
             "niveau_etude" => $this->etudes,
             "user_id" => auth()->user()->id
         ]);
+    }
+    public function delete_tag($tag_id,$annonce_id)
+    {
+        $annonce = Annonce::find($annonce_id);
+        $tag = Tags::find($tag_id);
+        $annonce->tags()->detach($tag);
+        $this->getAnnoncesProperty();
     }
     protected $rules = [
         'title' => 'required',

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin\Jobs;
 
 use App\Models\Annonce;
+use App\Models\Tags;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -17,7 +18,15 @@ class FullList extends Component
 
     public function getAnnoncesProperty()
     {
-        return Annonce::select('title', 'nature', 'salary', 'description', 'company_id', 'categorie_id','visits', 'qualification', 'duration', 'responsibility', 'niveau_etude','id')->paginate(5);
+        return Annonce::paginate(5);
+    }
+
+    public function delete_tag($tag_id,$annonce_id)
+    {
+        $annonce = Annonce::find($annonce_id);
+        $tag = Tags::find($tag_id);
+        $annonce->tags()->detach($tag);
+        $this->getAnnoncesProperty();
     }
 
 }

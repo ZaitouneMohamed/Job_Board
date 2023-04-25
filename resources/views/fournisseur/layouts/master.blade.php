@@ -18,7 +18,9 @@
     {{-- @livewireStyles --}}
 
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="{{ asset('dashboards/adminlte/dist/css/adminlte.min.css') }}">
     <!-- Google Font: Source Sans Pro -->
@@ -103,72 +105,33 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="{{route('fournisseur.company')}}" class="nav-link">
+                            <a href="{{ route('fournisseur.company') }}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Companies
-                                    {{-- <span class="right badge badge-danger">New</span> --}}
+                                    <span class="right badge badge-success">
+                                        {{ \App\Models\Company::where('user_id', auth()->user()->id)->count() }}
+                                    </span>
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('fournisseur.annonces.index')}}" class="nav-link">
+                            <a href="{{ route('fournisseur.annonces.index') }}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     annonces
-                                    {{-- <span class="right badge badge-danger">New</span> --}}
+                                    <span class="right badge badge-success">
+                                        {{ \App\Models\Annonce::where('user_id', auth()->user()->id)->count() }}
+                                    </span>
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('fournisseur.profile')}}" class="nav-link">
+                            <a href="{{ route('fournisseur.profile') }}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     profile
                                     {{-- <span class="right badge badge-danger">New</span> --}}
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-copy"></i>
-                                <p>
-                                    User list
-                                    <i class="fas fa-angle-left right"></i>
-                                    {{-- <span class="badge badge-info right">6</span> --}}
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Admins</p>
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Users</p>
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Fournisseurs</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>
-                                    Charts
-                                    <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                         </li>
