@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('annonces', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('slug');
             $table->string('nature');
             $table->string('salary');
             $table->string('description');

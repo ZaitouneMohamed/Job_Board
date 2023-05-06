@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +17,10 @@ class AnnonceFactory extends Factory
      */
     public function definition(): array
     {
+        $title = fake()->jobTitle();
         return [
-            'title' => fake()->jobTitle(),
+            'title' => $title,
+            'slug' => Str::slug($title),
             'nature' => "full time",
             'salary' => fake()->randomNumber(5,true),
             'description' => fake()->text(),

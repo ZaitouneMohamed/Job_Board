@@ -9,21 +9,21 @@
                         <img class="flex-shrink-0 img-fluid border rounded" src="{{ asset('landing/img/com-logo-2.jpg') }}"
                             alt="" style="width: 80px; height: 80px;">
                         <div class="text-start ps-4">
-                            <h3 class="mb-3">{{ $job->title }}</h3>
+                            <h3 class="mb-3">{{ $annonce->title }}</h3>
                             <span class="text-truncate me-3"><i
-                                    class="fa fa-map-marker-alt text-primary me-2"></i>{{ $job->company->adresse }}</span>
+                                    class="fa fa-map-marker-alt text-primary me-2"></i>{{ $annonce->company->adresse }}</span>
                             <span class="text-truncate me-3"><i
-                                    class="far fa-clock text-primary me-2"></i>{{ $job->nature }}</span>
+                                    class="far fa-clock text-primary me-2"></i>{{ $annonce->nature }}</span>
                             <span class="text-truncate me-0"><i
-                                    class="far fa-money-bill-alt text-primary me-2"></i>${{ $job->salary }}</span>
+                                    class="far fa-money-bill-alt text-primary me-2"></i>${{ $annonce->salary }}</span>
                         </div>
                     </div>
 
                     <div class="mb-5">
                         <h4 class="mb-3">Description</h4>
-                        <p>{{ $job->description }}</p>
+                        <p>{{ $annonce->description }}</p>
                         <h4 class="mb-3">Responsibility</h4>
-                        <p>{{ $job->responsibility }}</p>
+                        <p>{{ $annonce->responsibility }}</p>
                         <ul class="list-unstyled">
                             <li><i class="fa fa-angle-right text-primary me-2"></i>Dolor justo tempor duo ipsum accusam</li>
                             <li><i class="fa fa-angle-right text-primary me-2"></i>Elitr stet dolor vero clita labore
@@ -34,7 +34,7 @@
                             <li><i class="fa fa-angle-right text-primary me-2"></i>Diam diam stet erat no est est</li>
                         </ul>
                         <h4 class="mb-3">Qualifications</h4>
-                        <p>{{ $job->qualification }}</p>
+                        <p>{{ $annonce->qualification }}</p>
                         <ul class="list-unstyled">
                             <li><i class="fa fa-angle-right text-primary me-2"></i>Dolor justo tempor duo ipsum accusam</li>
                             <li><i class="fa fa-angle-right text-primary me-2"></i>Elitr stet dolor vero clita labore
@@ -47,7 +47,7 @@
                     </div>
                     <div>
                         <h4 class="mb-4">Tags</h4>
-                        @foreach ($job->tags as $tag)
+                        @foreach ($annonce->tags as $tag)
                             <a href="#">#{{ $tag->name }}</a>
                         @endforeach
                     </div>
@@ -79,10 +79,10 @@
                                             </div>
                                         </div>
                                     @else
-                                        @if (auth()->user()->job->contains($job->id))
+                                        @if (auth()->user()->job->contains($annonce->id))
                                             <h1>you already postuled on this job</h1>
                                         @else
-                                            <a href="{{ route('user.apply_job', ['user_id' => auth()->user()->id, 'job_id' => $job->id]) }}"
+                                            <a href="{{ route('user.apply_job', ['user_id' => auth()->user()->id, 'job_id' => $annonce->id]) }}"
                                                 class="btn btn-primary w-100">Apply Now</a>
                                         @endif
                                     @endif
@@ -98,20 +98,20 @@
                 <div class="col-lg-4">
                     <div class="bg-light rounded p-5 mb-4 wow slideInUp" data-wow-delay="0.1s">
                         <h4 class="mb-4">Job Summery</h4>
-                        <p><i class="fa fa-angle-right text-primary me-2"></i>Published {{ $job->created_at }}</p>
-                        <p><i class="fa fa-angle-right text-primary me-2"></i>Vacancy: {{ $job->users()->count() }}
+                        <p><i class="fa fa-angle-right text-primary me-2"></i>Published {{ $annonce->created_at }}</p>
+                        <p><i class="fa fa-angle-right text-primary me-2"></i>Vacancy: {{ $annonce->users()->count() }}
                             Position</p>
-                        <p><i class="fa fa-angle-right text-primary me-2"></i>Job Nature: {{ $job->nature }}</p>
-                        <p><i class="fa fa-angle-right text-primary me-2"></i>Salary: ${{ $job->salary }}</p>
-                        <p><i class="fa fa-angle-right text-primary me-2"></i>Location: {{ $job->company->description }}
+                        <p><i class="fa fa-angle-right text-primary me-2"></i>Job Nature: {{ $annonce->nature }}</p>
+                        <p><i class="fa fa-angle-right text-primary me-2"></i>Salary: ${{ $annonce->salary }}</p>
+                        <p><i class="fa fa-angle-right text-primary me-2"></i>Location: {{ $annonce->company->description }}
                         </p>
-                        <p class="m-0"><i class="fa fa-angle-right text-primary me-2"></i>Duration: {{ $job->duration }}
+                        <p class="m-0"><i class="fa fa-angle-right text-primary me-2"></i>Duration: {{ $annonce->duration }}
                             mois</p>
                     </div>
                     <div class="bg-light rounded p-5 wow slideInUp" data-wow-delay="0.1s">
                         <h4 class="mb-4">Company Detail</h4>
                         <p class="m-0">
-                            {{ $job->company->contact_info }}
+                            {{ $annonce->company->contact_info }}
                         </p>
                     </div>
                 </div>

@@ -45,7 +45,7 @@
                                                         class="far fa-heart text-primary"></i></button>
                                             @endif
                                         @endauth
-                                        <a class="btn btn-primary" href="{{ route('job_detail', $item->id) }}">view
+                                        <a class="btn btn-primary" href="{{ route('job_detail' , $item) }}">vieww
                                             job</a>
                                     </div>
                                     <small class="text-truncate"><i
@@ -82,7 +82,7 @@
                                             <button class="btn btn-light btn-square me-3"><i
                                                     class="far fa-heart text-primary"></i></button>
                                         @endauth
-                                        <a class="btn btn-primary" href="{{ route('job_detail', $item->id) }}">view
+                                        <a class="btn btn-primary" href="{{ route('job_detail', $item) }}">vieww
                                             job</a>
                                     </div>
                                     <small class="text-truncate"><i

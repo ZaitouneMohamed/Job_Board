@@ -107,7 +107,7 @@
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     categories
-                                    {{-- <span class="right badge badge-danger">New</span> --}}
+                                    <span class="right badge badge-success">{{\App\Models\Categorie::count()}}</span> 
                                 </p>
                             </a>
                         </li>
@@ -116,7 +116,7 @@
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     all users
-                                    {{-- <span class="right badge badge-danger">New</span> --}}
+                                    <span class="right badge badge-success">{{\App\Models\User::count()}}</span> 
                                 </p>
                             </a>
                         </li>
@@ -125,7 +125,16 @@
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Annonces list
-                                    {{-- <span class="right badge badge-danger">New</span> --}}
+                                    <span class="right badge badge-success">{{\App\Models\Annonce::count()}}</span> 
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin.tags')}}" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Tags
+                                    <span class="right badge badge-success">{{\App\Models\Tags::count()}}</span> 
                                 </p>
                             </a>
                         </li>
@@ -135,15 +144,6 @@
                                 <p>
                                     profile
                                     {{-- <span class="right badge badge-danger">New</span> --}}
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('admin.tags')}}" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
-                                <p>
-                                    Tags
-                                    <span class="right badge badge-danger">{{\App\Models\Tags::count()}}</span> 
                                 </p>
                             </a>
                         </li>

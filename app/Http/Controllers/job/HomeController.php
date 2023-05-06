@@ -8,12 +8,10 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function job_details($id)
+    public function job_details(Annonce $annonce)
     {
-        $job = Annonce::find($id);
-        $job->increment('visits');
-        // event(new viewIncrement($job));
-        return view('job.job_detail',compact("job"));
+        $annonce->increment('visits');
+        return view('job.job_detail',compact("annonce"));
     }
 
     public function all_jobs()
@@ -36,5 +34,9 @@ class HomeController extends Controller
         return view('job.search',compact("annonces"));
     }
 
+    public function job_on_tag()
+    {
+        
+    }
 
 }

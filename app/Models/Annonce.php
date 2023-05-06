@@ -12,6 +12,7 @@ class Annonce extends Model
 
     protected $fillable = [
         'title',
+        'slug',
         'nature',
         'salary',
         'description',
@@ -24,6 +25,10 @@ class Annonce extends Model
         'niveau_etude',
         'visits',
     ];
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
     public function tags()
     {
@@ -39,6 +44,7 @@ class Annonce extends Model
     {
         return $this->belongsTo(User::class);
     }
+
 
     public function company()
     {
